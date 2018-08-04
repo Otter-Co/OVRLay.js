@@ -1,5 +1,5 @@
-import LibMap from './lib/lib_map';
-import { Assembly } from './lib/edge_utils';
+import LibMap from './lib/util/lib_map';
+import { Assembly } from './lib/util/edge_utils';
 
 const libPaths = LibMap(__dirname);
 

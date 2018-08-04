@@ -1,4 +1,4 @@
-import * as edge from '../../3p_lib/edge';
+import * as edge from '../../../3p_lib/edge/lib/edge';
 
 export interface EdgeOpts {
     assemblyFile: string;
