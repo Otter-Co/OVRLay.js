@@ -1,9 +1,10 @@
 {
     "compilerOptions": {
-        "target": "es2015",
+        "target": "esnext",
+        "outDir": "./bin",
         "module": "commonjs",
         "moduleResolution": "node",
-        "outDir": "./bin"
+        "allowSyntheticDefaultImports": true,
     },
     "include": [
         "src_ts"

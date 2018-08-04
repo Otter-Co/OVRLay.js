@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
 
-namespace src_cs
+public class Class1
 {
-    public class Class1
+    public async Task<Object> GetString(dynamic args)
     {
+        return "Test String!";
     }
 }
