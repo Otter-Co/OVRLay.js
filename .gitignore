@@ -1,3 +1,9 @@
+# C#
+
+bin
+obj
+!/bin
+
 # Logs
 logs
 *.log
