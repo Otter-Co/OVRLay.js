@@ -5,8 +5,6 @@ const archPath = ((process.arch === "x64")
     : __dirname + path.sep + ["native", "win32", "ia32", "8.2.1", "edge_nativeclr.node"].join(path.sep)
 );
 
-console.log(archPath);
-
 process.env.EDGE_NATIVE = archPath;
 const edge = require(archPath);
 
