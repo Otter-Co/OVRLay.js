@@ -1,4 +1,3 @@
-import * as edge from '../3p_lib/edge';
 import LibMap from './lib/lib_map';
 import { Assembly } from './lib/edge_utils';
 

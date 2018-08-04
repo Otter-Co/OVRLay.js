@@ -2,10 +2,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const edge = require("../../3p_lib/edge");
 class Assembly {
-    constructor(assemblyFile) {
+    constructor(assemblyFile, dependencies) {
         this.assemblyFile = assemblyFile;
+        this.dependencies = dependencies;
     }
-    get _baseObj() { return { assemblyFile: this.assemblyFile }; }
+    get _baseObj() {
+        if (this.dependencies)
+            return { assemblyFile: this.assemblyFile, references: this.dependencies };
+        else
+            return { assemblyFile: this.assemblyFile };
+    }
     ;
     mapClass(typeName, tClass) {
         let methods = Object.getOwnPropertyNames(tClass.prototype)

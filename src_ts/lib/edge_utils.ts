@@ -4,12 +4,21 @@ export interface EdgeOpts {
     assemblyFile: string;
     typeName?: string;
     methodName?: string;
+    references?: string[];
 }
 
 export class Assembly {
-    private get _baseObj(): EdgeOpts { return { assemblyFile: this.assemblyFile } };
+    private get _baseObj(): EdgeOpts {
+        if (this.dependencies)
+            return { assemblyFile: this.assemblyFile, references: this.dependencies };
+        else
+            return { assemblyFile: this.assemblyFile };
+    };
 
-    constructor(public readonly assemblyFile: string) { }
+    constructor(
+        public readonly assemblyFile: string,
+        public readonly dependencies?: string[]
+    ) { }
 
     public mapClass<T>(typeName: string, tClass: Function) {
 

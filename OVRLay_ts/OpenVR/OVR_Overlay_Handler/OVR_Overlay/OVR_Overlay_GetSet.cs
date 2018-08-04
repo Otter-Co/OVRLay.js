@@ -5,6 +5,7 @@ using Valve.VR;
 public partial class OVR_Overlay 
 {
     protected OVR_Handler OVR { get { return OVR_Handler.instance; } }
+    
     public bool OverlayExists 
     { 
         get 
