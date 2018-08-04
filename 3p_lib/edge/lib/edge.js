@@ -1,54 +1,10 @@
-var fs = require('fs')
-    , path = require('path')
-    , builtEdge = path.resolve(__dirname, '../build/Release/' + (process.env.EDGE_USE_CORECLR || !fs.existsSync(path.resolve(__dirname, '../build/Release/edge_nativeclr.node')) ? 'edge_coreclr.node' : 'edge_nativeclr.node'))
-    , edge;
+const archPath = ( (process.arch === "x64")
+    ? "./native/win32/x64"
+    : "./native/win32/ia32"
+);
 
-var versionMap = [
-    [ /^6\./, '6.11.2' ],
-    [ /^7\./, '7.10.1' ],
-    [ /^8\./, '8.2.1' ],
-];
-
-function determineVersion() {
-    for (var i in versionMap) {
-        if (process.versions.node.match(versionMap[i][0])) {
-            return versionMap[i][1];
-        }
-    }
-
-    throw new Error('The edge module has not been pre-compiled for node.js version ' + process.version +
-        '. You must build a custom version of edge.node. Please refer to https://github.com/tjanczuk/edge ' +
-        'for building instructions.');
-}
-var edgeNative;
-if (process.env.EDGE_NATIVE) {
-    edgeNative = process.env.EDGE_NATIVE;
-}
-else if (fs.existsSync(builtEdge)) {
-    edgeNative = builtEdge;
-}
-else if (process.platform === 'win32') {
-    edgeNative = path.resolve(__dirname, './native/' + process.platform + '/' + process.arch + '/' + determineVersion() + '/' + (process.env.EDGE_USE_CORECLR ? 'edge_coreclr' : 'edge_nativeclr'));
-}
-else {
-    throw new Error('The edge native module is not available at ' + builtEdge 
-        + '. You can use EDGE_NATIVE environment variable to provide alternate location of edge.node. '
-        + 'If you need to build edge.node, follow build instructions for your platform at https://github.com/tjanczuk/edge');
-}
-if (process.env.EDGE_DEBUG) {
-    console.log('Load edge native library from: ' + edgeNative);
-}
-if (edgeNative.match(/edge_coreclr\.node$/i)) {
-    // Propagate the choice between desktop and coreclr to edge-cs; this is used in deciding
-    // how to compile literal C# at https://github.com/tjanczuk/edge-cs/blob/master/lib/edge-cs.js
-    process.env.EDGE_USE_CORECLR = 1;
-}
-if (process.env.EDGE_USE_CORECLR && !process.env.EDGE_BOOTSTRAP_DIR && fs.existsSync(path.join(__dirname, 'bootstrap', 'bin', 'Release', 'netcoreapp1.0', 'bootstrap.dll'))) {
-    process.env.EDGE_BOOTSTRAP_DIR = path.join(__dirname, 'bootstrap', 'bin', 'Release', 'netcoreapp1.0');
-}
-
-process.env.EDGE_NATIVE = edgeNative;
-edge = require(edgeNative);
+process.env.EDGE_NATIVE = archPath;
+const edge = require(archPath);
 
 exports.func = function(language, options) {
     if (!options) {
