@@ -51,13 +51,13 @@ namespace OVRLay
             Director.Overlay.ShowOverlay(overlay_handle);
         }
 
-        public bool OpenKeyboard(string description = "", string placeHolder = "")
+        public bool ShowKeyboard(string description = "", string placeHolder = "")
         {
             lastError = Director.Overlay.ShowKeyboard(0, 0, description, 256, placeHolder, false, 0);
             return (lastError == EVROverlayError.None);
         }
 
-        public void CloseKeyboard()
+        public void HideKeyboard()
         {
             Director.Overlay.HideKeyboard();
         }

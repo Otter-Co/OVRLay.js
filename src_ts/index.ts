@@ -1,6 +1,5 @@
-import LibMap from './lib/util/lib_map';
+import LibMap from './dat/lib_map';
 import { Assembly } from './lib/util/edge_utils';
-import { performance } from 'perf_hooks';
 
 const libPaths = LibMap( __dirname );
 

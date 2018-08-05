@@ -1,4 +1,4 @@
-import { ArrayToPath } from './util';
+import { ArrayToPath } from '../lib/util/util';
 
 const openVrArch = ( process.arch == "x64" ) ? "win64" : "win32";
 
