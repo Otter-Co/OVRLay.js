@@ -1,9 +1,7 @@
-import { ArrayToPath } from '../lib/util/util';
+import path from 'path';
 
-const openVrArch = ( process.arch == "x64" ) ? "win64" : "win32";
-
-export default ( basePath: string ) => ( {
-    local: ArrayToPath( basePath, [ "lib_cs", "src_cs.dll" ] ),
-    overlay: ArrayToPath( basePath, [ "lib_cs", "src_ovrlay.dll" ] ),
-    openvr: ArrayToPath( basePath, [ "lib_cs", "openvr", openVrArch, "openvr_api.dll" ] )
-} );
+export default (basePath: string) => ({
+    local: path.resolve(basePath, "lib_cs", "src_cs.dll"),
+    overlay: path.resolve(basePath, "lib_cs", "OVRLay.dll"),
+    openvr: path.resolve(basePath, "lib_cs", "openvr", (process.arch == "x64") ? "win64" : "win32", "openvr_api.dll")
+});

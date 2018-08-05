@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const util_1 = require("../lib/util/util");
-const openVrArch = (process.arch == "x64") ? "win64" : "win32";
+const path_1 = require("path");
 exports.default = (basePath) => ({
-    local: util_1.ArrayToPath(basePath, ["lib_cs", "src_cs.dll"]),
-    overlay: util_1.ArrayToPath(basePath, ["lib_cs", "src_ovrlay.dll"]),
-    openvr: util_1.ArrayToPath(basePath, ["lib_cs", "openvr", openVrArch, "openvr_api.dll"])
+    local: path_1.default.resolve(basePath, "lib_cs", "src_cs.dll"),
+    overlay: path_1.default.resolve(basePath, "lib_cs", "OVRLay.dll"),
+    openvr: path_1.default.resolve(basePath, "lib_cs", "openvr", (process.arch == "x64") ? "win64" : "win32", "openvr_api.dll")
 });
