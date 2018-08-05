@@ -93,7 +93,8 @@ void CoreClrNodejsFuncInvokeContext::InvokeCallback(void* data)
 		Nan::New(callbackFactory)->Call(Nan::GetCurrentContext()->Global(), 2, factoryArgv));
 
 	v8::Local<v8::Value> argv[] = { v8Payload, callback };
-	TryCatch tryCatch;
+	
+	TryCatch tryCatch(v8::Isolate::GetCurrent());
 
 	DBG("CoreClrNodejsFuncInvokeContext::InvokeCallback - Calling JavaScript function");
 	Nan::Call(Nan::New(*(context->FunctionContext->Func)), Nan::GetCurrentContext()->Global(), 2, argv);

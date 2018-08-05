@@ -16,7 +16,7 @@ if not exist "%NODEEXE%" (
     exit /b -1
 )
 for %%i in ("%NODEEXE%") do set NODEDIR=%%~dpi
-SET DESTDIRROOT=%SELF%\..\lib\native\win32
+SET DESTDIRROOT=%SELF%..\lib\native\win32
 set VERSIONS=
 :harvestVersions
 if "%1" neq "" (
@@ -60,14 +60,22 @@ if %ERRORLEVEL% neq 0 (
     exit /b -1
 )
 
+set COPYFROMDIR=.\build\Release\edge_*.node
+
 echo %DESTDIR%
-copy /y .\build\%FLAVOR%\edge_*.node "%DESTDIR%"
+echo %COPYFROMDIR%
+
+copy /y "%COPYFROMDIR%" "%DESTDIR%"
 if %ERRORLEVEL% neq 0 (
     echo Error copying edge.node %FLAVOR% for node.js %2 v%3
     exit /b -1
 )
 
-copy /y "%DESTDIR%\..\*.dll" "%DESTDIR%"
+set LIBCOPYFROM=%DESTDIR%\..\*.dll
+
+echo %LIBCOPYFROM%
+
+copy /y "%LIBCOPYFROM%" "%DESTDIR%"
 if %ERRORLEVEL% neq 0 (
     echo Error copying VC redist %FLAVOR% to %DESTDIR%
     exit /b -1

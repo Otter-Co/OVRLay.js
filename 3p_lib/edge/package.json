@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "edge-cs": "1.2.1",
-    "nan": "^2.0.9"
+    "nan": "^2.10.0"
   },
   "devDependencies": {
     "mocha": "2.5.3",
