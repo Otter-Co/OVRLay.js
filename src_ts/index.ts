@@ -1,17 +1,18 @@
 import LibMap from './lib/util/lib_map';
 import { Assembly } from './lib/util/edge_utils';
+import { performance } from 'perf_hooks';
 
-const libPaths = LibMap(__dirname);
+const libPaths = LibMap( __dirname );
 
-const src_cs = new Assembly(libPaths.local);
+const src_cs = new Assembly( libPaths.local );
 
-class T_Class1
+class OVRLay_T
 {
-    public GetString(){}
+    Test (): string { return; };
 }
 
-const Class1 = src_cs.mapClass<typeof T_Class1>('Class1', T_Class1);
+const OVRLay = src_cs.mapClass<typeof OVRLay_T>( 'OVRLayJS.OVRLay', OVRLay_T );
 
-let cT = new Class1();
+let cT = new OVRLay();
 
-console.log(cT.GetString());
+console.log( cT.Test() );

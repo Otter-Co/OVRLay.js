@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="OpenGL.Net" Version="0.7.1" />
+    <PackageReference Include="OpenGL.Net.WinForms" Version="0.7.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PublishDir>../bin/lib_cs</PublishDir>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/Otter-Co/OVRLay.js#readme",
   "dependencies": {
-    "edge": "3p_lib/edge"
+    "edge": "3p_lib/edge",
+    "perf_hooks": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^10.5.6"

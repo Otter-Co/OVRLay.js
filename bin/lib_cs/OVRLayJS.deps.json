@@ -1,0 +1,98 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": "c07e904a6738aeeec40180c1023cafaa7579e39a"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "OVRLayJS/1.0.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "NETStandard.Library": "2.0.3",
+          "OpenGL.Net": "0.7.1",
+          "OpenGL.Net.WinForms": "0.7.1"
+        },
+        "runtime": {
+          "OVRLayJS.dll": {}
+        }
+      },
+      "Microsoft.CSharp/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.CSharp.dll": {
+            "assemblyVersion": "4.0.4.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "OpenGL.Net/0.7.1": {
+        "runtime": {
+          "lib/net461/OpenGL.Net.dll": {
+            "assemblyVersion": "0.7.1.0",
+            "fileVersion": "0.7.1.0"
+          }
+        }
+      },
+      "OpenGL.Net.WinForms/0.7.1": {
+        "dependencies": {
+          "OpenGL.Net": "0.7.1"
+        },
+        "runtime": {
+          "lib/net461/OpenGL.Net.WinForms.dll": {
+            "assemblyVersion": "0.7.1.0",
+            "fileVersion": "0.7.1.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OVRLayJS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.CSharp/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EGoBmf3Na2ppbhPePDE9PlX81r1HuOZH5twBrq7couJZiPTjUnD3648balerQJO6EJ8Sj+43+XuRwQ7r+3tE3w==",
+      "path": "microsoft.csharp/4.5.0",
+      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "OpenGL.Net/0.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5XNYStjVWRDecXSKFdcsTce0Tghkc1XU/ONkdpJ+PB/dDw+4pnQsEDDqbrlsOEHbVLpomVrEcC0zwFyTlr5BrQ==",
+      "path": "opengl.net/0.7.1",
+      "hashPath": "opengl.net.0.7.1.nupkg.sha512"
+    },
+    "OpenGL.Net.WinForms/0.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Mmz9INDULAxIpUrMbrf7U1l7BhNzeJHpMy2RiN+4NEr6neT8f9yYv11lkQy0tFnNHINN4sQsJLlRZYgaLnbtmw==",
+      "path": "opengl.net.winforms/0.7.1",
+      "hashPath": "opengl.net.winforms.0.7.1.nupkg.sha512"
+    }
+  }
+}

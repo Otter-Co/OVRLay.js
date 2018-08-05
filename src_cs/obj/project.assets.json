@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "Microsoft.CSharp/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/Microsoft.CSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.CSharp.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -25,10 +34,98 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "OpenGL.Net/0.7.1": {
+        "type": "package",
+        "compile": {
+          "lib/net461/OpenGL.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net461/OpenGL.Net.dll": {}
+        }
+      },
+      "OpenGL.Net.WinForms/0.7.1": {
+        "type": "package",
+        "dependencies": {
+          "OpenGL.Net": "0.7.1"
+        },
+        "compile": {
+          "lib/net461/OpenGL.Net.WinForms.dll": {}
+        },
+        "runtime": {
+          "lib/net461/OpenGL.Net.WinForms.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "Microsoft.CSharp/4.5.0": {
+      "sha512": "EGoBmf3Na2ppbhPePDE9PlX81r1HuOZH5twBrq7couJZiPTjUnD3648balerQJO6EJ8Sj+43+XuRwQ7r+3tE3w==",
+      "type": "package",
+      "path": "microsoft.csharp/4.5.0",
+      "files": [
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/uap10.0.16299/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.5.0.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/uap10.0.16299/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -168,11 +265,53 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "OpenGL.Net/0.7.1": {
+      "sha512": "5XNYStjVWRDecXSKFdcsTce0Tghkc1XU/ONkdpJ+PB/dDw+4pnQsEDDqbrlsOEHbVLpomVrEcC0zwFyTlr5BrQ==",
+      "type": "package",
+      "path": "opengl.net/0.7.1",
+      "files": [
+        "lib/monoandroid/OpenGL.Net.dll",
+        "lib/monoandroid/OpenGL.Net.pdb",
+        "lib/monoandroid/OpenGL.Net.xml",
+        "lib/net35/OpenGL.Net.dll",
+        "lib/net35/OpenGL.Net.pdb",
+        "lib/net35/OpenGL.Net.xml",
+        "lib/net461/OpenGL.Net.dll",
+        "lib/net461/OpenGL.Net.pdb",
+        "lib/net461/OpenGL.Net.xml",
+        "lib/netcoreapp1.1/OpenGL.Net.dll",
+        "lib/netcoreapp1.1/OpenGL.Net.pdb",
+        "lib/netcoreapp1.1/OpenGL.Net.xml",
+        "lib/netcoreapp2.0/OpenGL.Net.dll",
+        "lib/netcoreapp2.0/OpenGL.Net.pdb",
+        "lib/netcoreapp2.0/OpenGL.Net.xml",
+        "opengl.net.0.7.1.nupkg.sha512",
+        "opengl.net.nuspec"
+      ]
+    },
+    "OpenGL.Net.WinForms/0.7.1": {
+      "sha512": "Mmz9INDULAxIpUrMbrf7U1l7BhNzeJHpMy2RiN+4NEr6neT8f9yYv11lkQy0tFnNHINN4sQsJLlRZYgaLnbtmw==",
+      "type": "package",
+      "path": "opengl.net.winforms/0.7.1",
+      "files": [
+        "lib/net35/OpenGL.Net.WinForms.dll",
+        "lib/net35/OpenGL.Net.WinForms.pdb",
+        "lib/net35/OpenGL.Net.WinForms.xml",
+        "lib/net461/OpenGL.Net.WinForms.dll",
+        "lib/net461/OpenGL.Net.WinForms.pdb",
+        "lib/net461/OpenGL.Net.WinForms.xml",
+        "opengl.net.winforms.0.7.1.nupkg.sha512",
+        "opengl.net.winforms.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "NETStandard.Library >= 2.0.3"
+      "Microsoft.CSharp >= 4.5.0",
+      "NETStandard.Library >= 2.0.3",
+      "OpenGL.Net >= 0.7.1",
+      "OpenGL.Net.WinForms >= 0.7.1"
     ]
   },
   "packageFolders": {
@@ -182,22 +321,24 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\src_cs.csproj",
-      "projectName": "src_cs",
-      "projectPath": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\src_cs.csproj",
+      "projectUniqueName": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
+      "projectName": "OVRLayJS",
+      "projectPath": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
       "packagesPath": "C:\\Users\\benot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\obj\\",
+      "outputPath": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\benot\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\benot\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -214,11 +355,23 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "Microsoft.CSharp": {
+            "target": "Package",
+            "version": "[4.5.0, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "OpenGL.Net": {
+            "target": "Package",
+            "version": "[0.7.1, )"
+          },
+          "OpenGL.Net.WinForms": {
+            "target": "Package",
+            "version": "[0.7.1, )"
           }
         },
         "imports": [
@@ -228,5 +381,27 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'OpenGL.Net 0.7.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "OpenGL.Net",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'OpenGL.Net.WinForms 0.7.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "OpenGL.Net.WinForms",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }
