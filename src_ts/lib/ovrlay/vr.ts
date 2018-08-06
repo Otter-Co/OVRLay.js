@@ -24,3 +24,20 @@ export interface HmdVector2
     v0: number;
     v1: number;
 }
+
+export const enum DirectorMethodType
+{
+    IsStarted,
+    GetLastStartupError,
+    Startup,
+    Shutdown,
+    PollForEvents,
+}
+
+export const enum DirectorCallbackType
+{
+    OnStandby,
+    OnDashboardChange,
+    OnChaperoneSettingsChange,
+    OnOpenVRSignaledQuit,
+}

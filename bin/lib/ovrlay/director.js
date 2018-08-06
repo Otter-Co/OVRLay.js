@@ -4,7 +4,7 @@ const events = require("events");
 class C_Director extends events.EventEmitter {
     isStarted() { return true; }
     getLastError() { return ''; }
-    startup(appType) { }
+    startup(appType) { return false; }
     shutdown() { }
     pollForEvents() { }
 }

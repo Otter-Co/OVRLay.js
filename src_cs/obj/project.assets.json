@@ -321,22 +321,24 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
+      "projectUniqueName": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
       "projectName": "OVRLayJS",
-      "projectPath": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
+      "projectPath": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
       "packagesPath": "C:\\Users\\benot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\obj\\",
+      "outputPath": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\benot\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\benot\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

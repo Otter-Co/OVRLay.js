@@ -6,6 +6,10 @@
     <PackageReference Include="OpenGL.Net.WinForms" Version="0.7.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\src_ovrlay\OVRLay.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <PublishDir>../bin/lib_cs</PublishDir>
   </PropertyGroup>
