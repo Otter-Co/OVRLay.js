@@ -1,18 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const edge = require("../../../3p_lib/edge");
+const edge = require("edge-js");
 class Assembly {
     constructor(assemblyFile, dependencies) {
         this.assemblyFile = assemblyFile;
         this.dependencies = dependencies;
     }
-    get baseObj() {
-        if (this.dependencies)
-            return { assemblyFile: this.assemblyFile, references: this.dependencies };
-        else
-            return { assemblyFile: this.assemblyFile };
-    }
-    ;
+    get baseObj() { return { assemblyFile: this.assemblyFile }; }
     mapClass(classPath) {
         return new Assembly_Class(this, classPath);
     }
@@ -23,6 +17,7 @@ class Assembly_Class {
         this.assembly = assembly;
         this.path = path;
     }
+    get baseObj() { return { ...this.assembly.baseObj, typeName: this.path }; }
     mapMethod(methodName) {
         const method = this.createFunc(methodName);
         return ((data = null) => method(data, true));
