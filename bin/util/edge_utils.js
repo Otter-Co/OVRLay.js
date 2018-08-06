@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const edge = require("../../../3p_lib/edge");
+const edge = require("../../3p_lib/edge");
 class Assembly {
     constructor(assemblyFile, dependencies) {
         this.assemblyFile = assemblyFile;
