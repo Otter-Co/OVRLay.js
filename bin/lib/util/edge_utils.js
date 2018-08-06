@@ -25,11 +25,11 @@ class Assembly_Class {
     }
     mapMethod(methodName) {
         const method = this.createFunc(methodName);
-        return ((data) => method(data, true));
+        return ((data = null) => method(data, true));
     }
     mapAsyncMethod(methodName) {
         const method = this.createFunc(methodName);
-        return ((data) => new Promise((res, rej) => method(data, (err, dat) => (!err ? res(dat) : rej(err)))));
+        return (data = null) => new Promise((res, rej) => method(data, (err, dat) => (!err ? res(dat) : rej(err))));
     }
     createFunc(methodName) {
         return edge.func({

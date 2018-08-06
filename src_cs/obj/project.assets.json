@@ -55,6 +55,16 @@
         "runtime": {
           "lib/net461/OpenGL.Net.WinForms.dll": {}
         }
+      },
+      "OVRLay/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/OVRLay.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OVRLay.dll": {}
+        }
       }
     }
   },
@@ -304,12 +314,18 @@
         "opengl.net.winforms.0.7.1.nupkg.sha512",
         "opengl.net.winforms.nuspec"
       ]
+    },
+    "OVRLay/1.0.0": {
+      "type": "project",
+      "path": "../src_ovrlay/OVRLay.csproj",
+      "msbuildProject": "../src_ovrlay/OVRLay.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Microsoft.CSharp >= 4.5.0",
       "NETStandard.Library >= 2.0.3",
+      "OVRLay >= 1.0.0",
       "OpenGL.Net >= 0.7.1",
       "OpenGL.Net.WinForms >= 0.7.1"
     ]
@@ -321,29 +337,31 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
+      "projectUniqueName": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
       "projectName": "OVRLayJS",
-      "projectPath": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
+      "projectPath": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
       "packagesPath": "C:\\Users\\benot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\obj\\",
+      "outputPath": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\benot\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\benot\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_ovrlay\\OVRLay.csproj": {
+              "projectPath": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_ovrlay\\OVRLay.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

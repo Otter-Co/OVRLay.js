@@ -11,6 +11,7 @@
         "dependencies": {
           "Microsoft.CSharp": "4.5.0",
           "NETStandard.Library": "2.0.3",
+          "OVRLay": "1.0.0",
           "OpenGL.Net": "0.7.1",
           "OpenGL.Net.WinForms": "0.7.1"
         },
@@ -49,6 +50,11 @@
             "assemblyVersion": "0.7.1.0",
             "fileVersion": "0.7.1.0"
           }
+        }
+      },
+      "OVRLay/1.0.0": {
+        "runtime": {
+          "OVRLay.dll": {}
         }
       }
     }
@@ -93,6 +99,11 @@
       "sha512": "sha512-Mmz9INDULAxIpUrMbrf7U1l7BhNzeJHpMy2RiN+4NEr6neT8f9yYv11lkQy0tFnNHINN4sQsJLlRZYgaLnbtmw==",
       "path": "opengl.net.winforms/0.7.1",
       "hashPath": "opengl.net.winforms.0.7.1.nupkg.sha512"
+    },
+    "OVRLay/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
