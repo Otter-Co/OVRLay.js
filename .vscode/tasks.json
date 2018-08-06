@@ -19,6 +19,18 @@
             "type": "npm",
             "script": "build-cs",
             "isBackground": true
+        },
+        {
+            "type": "typescript",
+            "tsconfig": "OVRLay.js\\tsconfig.json",
+            "option": "watch",
+            "problemMatcher": [
+                "$tsc-watch"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

@@ -1,11 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const events = require("events");
-var OVRLayType;
-(function (OVRLayType) {
-    OVRLayType[OVRLayType["StandardOverlay"] = 0] = "StandardOverlay";
-    OVRLayType[OVRLayType["DashboardOverlay"] = 1] = "DashboardOverlay";
-})(OVRLayType = exports.OVRLayType || (exports.OVRLayType = {}));
 class C_Overlay extends events.EventEmitter {
     getOptions() { return null; }
     ;
@@ -28,3 +23,8 @@ class C_Overlay extends events.EventEmitter {
     ;
 }
 exports.C_Overlay = C_Overlay;
+var OVRLayType;
+(function (OVRLayType) {
+    OVRLayType[OVRLayType["StandardOverlay"] = 0] = "StandardOverlay";
+    OVRLayType[OVRLayType["DashboardOverlay"] = 1] = "DashboardOverlay";
+})(OVRLayType = exports.OVRLayType || (exports.OVRLayType = {}));

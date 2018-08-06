@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using OVRLay;
 using Valve.VR;
+using OVRLay;
+using OVRLayJS.OGLHandler;
 
 namespace OVRLayJS
 {
@@ -17,50 +18,7 @@ namespace OVRLayJS
         public async Task<object> GetDirectorCallbackMethods(dynamic arg) => DirectorCallbackMethodInstance;
     }
 
-    public class DirectorMethods
-    {
-        public Func<object, Task<object>> isStarted = (Func<object, Task<object>>)(
-            async (args) => Director.Started
-        );
-        public Func<object, Task<object>> getLastStartupError = (Func<object, Task<object>>)(
-            async (args) => Director.LastStartupError
-        );
-        public Func<object, Task<object>> startup = (Func<object, Task<object>>)(
-            async (args) => Director.Startup((EVRApplicationType)args)
-        );
-        public Func<object, Task<object>> shutdown = (Func<object, Task<object>>)(
-            async (args) => { Director.Shutdown(); return null; }
-        );
-        public Func<object, Task<object>> pollForEvents = (Func<object, Task<object>>)(
-            async (args) => { Director.PollForEvents(); return null; }
-        );
-    }
-
-    public class DirectorCallbackMethods
-    {
-        public Func<object, Task<object>> onStandbyChange = (Func<object, Task<object>>)(
-            async (dynamic args) => Connector_Callbacks.SetDirectorCallback(
-                DirectorCallbackType.OnStandby,
-                (Func<object, Task<object>>)args
-            ));
-        public Func<object, Task<object>> onDashboardChange = (Func<object, Task<object>>)(
-            async (dynamic args) => Connector_Callbacks.SetDirectorCallback(
-                DirectorCallbackType.OnDashboardChange,
-                (Func<object, Task<object>>)args
-            ));
-        public Func<object, Task<object>> onChaperoneSettingsChange = (Func<object, Task<object>>)(
-            async (dynamic args) => Connector_Callbacks.SetDirectorCallback(
-                DirectorCallbackType.OnChaperoneSettingsChange,
-                (Func<object, Task<object>>)args
-            ));
-        public Func<object, Task<object>> onOpenVRSignaledQuit = (Func<object, Task<object>>)(
-            async (dynamic args) => Connector_Callbacks.SetDirectorCallback(
-                DirectorCallbackType.OnOpenVRSignaledQuit,
-                (Func<object, Task<object>>)args
-            ));
-    }
-
-    static class Connector_Callbacks
+    static class Static_Connector_Callbacks
     {
         public static Func<object, Task<object>> onStandby_JS = (async (dat) => dat);
         public static Func<object, Task<object>> onDashboardChange_JS = (async (dat) => dat);
@@ -72,7 +30,7 @@ namespace OVRLayJS
         public static Director.ChaperoneSettingsChange onChaperoneSettingsChange_Del = () => onChaperoneSettingsChange_JS(null);
         public static Director.OpenVRSignaledQuit onOpenVRSignaledQuit_Del = () => onOpenVRSignaledQuit_JS(null);
 
-        static Connector_Callbacks()
+        static Static_Connector_Callbacks()
         {
             Director.onStandbyChange += onStandby_Del;
             Director.onDashboardChange += onDashboardChange_Del;
@@ -85,16 +43,16 @@ namespace OVRLayJS
             switch (cbType)
             {
                 case DirectorCallbackType.OnStandby:
-                    Connector_Callbacks.onStandby_JS = callback;
+                    Static_Connector_Callbacks.onStandby_JS = callback;
                     break;
                 case DirectorCallbackType.OnDashboardChange:
-                    Connector_Callbacks.onDashboardChange_JS = callback;
+                    Static_Connector_Callbacks.onDashboardChange_JS = callback;
                     break;
                 case DirectorCallbackType.OnChaperoneSettingsChange:
-                    Connector_Callbacks.onChaperoneSettingsChange_JS = callback;
+                    Static_Connector_Callbacks.onChaperoneSettingsChange_JS = callback;
                     break;
                 case DirectorCallbackType.OnOpenVRSignaledQuit:
-                    Connector_Callbacks.onOpenVRSignaledQuit_JS = callback;
+                    Static_Connector_Callbacks.onOpenVRSignaledQuit_JS = callback;
                     break;
             }
 

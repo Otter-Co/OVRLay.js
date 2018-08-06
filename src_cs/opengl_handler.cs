@@ -22,17 +22,18 @@ namespace OVRLayJS.OGLHandler
             devCtx.MakeCurrent(glCtx);
         }
 
-        public static OpenGLTexture CreateTexture(int width, int height, int bitDepth)
-        {
-            return new OpenGLTexture(width, height, bitDepth);
-        }
-
         public static void Shutdown()
         {
             devCtx.DeleteContext(glCtx);
             pixelBuff.Dispose();
             devCtx.Dispose();
         }
+
+        public static OpenGLTexture CreateTexture(int width, int height)
+        {
+            return new OpenGLTexture(width, height);
+        }
+
 
         public static bool ErrorCheck()
         {
@@ -47,25 +48,16 @@ namespace OVRLayJS.OGLHandler
 
     public class OpenGLTexture
     {
-        public const TextureTarget TexTarg = TextureTarget.Texture2d;
-        public const PixelType TexPType = PixelType.UnsignedByte;
-        public const PixelFormat TexPForm = PixelFormat.Rgb;
-        public const InternalFormat TexForm = InternalFormat.Rgb;
-        public const PixelFormat AlphaTexPForm = PixelFormat.Rgba;
-        public const InternalFormat AlphaTexForm = InternalFormat.Rgba;
-
         public uint TexturePtr { get; }
         public int Width { get; }
         public int Height { get; }
-        public int BitDepth { get; }
 
-        public OpenGLTexture(int width, int height, int bitDepth)
+        public OpenGLTexture(int width, int height)
         {
             TexturePtr = Gl.GenTexture();
 
             Width = width;
             Height = height;
-            BitDepth = bitDepth;
         }
 
         public void SetTexture(byte[] imageData)
@@ -76,12 +68,19 @@ namespace OVRLayJS.OGLHandler
             imgDataPtr.Dispose();
         }
 
-        public void SetTextureAlpha(byte[] imageData)
+        public void SetTextureWithAlpha(byte[] imageData)
         {
             var imgDataPtr = new AutoPtr<byte[]>(imageData);
             Gl.BindTexture(TexTarg, TexturePtr);
             Gl.TexImage2D(TexTarg, 0, AlphaTexForm, Width, Height, 0, AlphaTexPForm, TexPType, imgDataPtr.Address);
             imgDataPtr.Dispose();
         }
+
+        public const TextureTarget TexTarg = TextureTarget.Texture2d;
+        public const PixelType TexPType = PixelType.UnsignedByte;
+        public const PixelFormat TexPForm = PixelFormat.Rgb;
+        public const InternalFormat TexForm = InternalFormat.Rgb;
+        public const PixelFormat AlphaTexPForm = PixelFormat.Rgba;
+        public const InternalFormat AlphaTexForm = InternalFormat.Rgba;
     }
 }
