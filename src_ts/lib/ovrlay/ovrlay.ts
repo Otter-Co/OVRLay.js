@@ -1,7 +1,7 @@
 import * as events from 'events';
 import * as vr from './vr';
 
-export class C_Overlay extends events.EventEmitter
+export class C_OVRLay extends events.EventEmitter
 {
     public overlayType: OVRLayType;
     public getOptions (): OVRLayOptions { return null };
@@ -19,20 +19,26 @@ export class C_Overlay extends events.EventEmitter
         initalOptions?: OVRLayOptions
     ) { super(); }
 
+    public createOverlay (): boolean { return false };
+    public destroyOverlay (): boolean { return false };
+
+    public setOverlayOptions ( opts: OVRLayOptions ): boolean { return false };
+    public pollForEvents (): void { };
+
+    public setTextureType (): boolean { return false; }
+    public setTexture (): boolean { return false; }
+
+    public setDashboardIconType (): boolean { return false; }
+    public setDashboardIcon (): boolean { return false; }
+
     public hide (): void { };
     public show (): void { };
 
     public showKeyboard ( description: string, placeholder: string ): boolean { return false };
     public hideKeyboard (): boolean { return false };
-
-    public createOverlay (): boolean { return false };
-
-    public setOverlayOptions ( opts: OVRLayOptions ): boolean { return false };
-
-    public pollForEvents (): void { };
 }
 
-export interface C_Overlay
+export interface C_OVRLay
 {
     on ( event: "dashboard-change", cb: ( currentActive: boolean ) => void );
     on ( event: "focus-change", cb: ( hasFocus: boolean ) => void );

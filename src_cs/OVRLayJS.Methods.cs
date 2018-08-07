@@ -29,45 +29,20 @@ namespace OVRLayJS
     public class DirectorCallbackMethods
     {
         public Func<object, Task<object>> onStandbyChange = (Func<object, Task<object>>)(
-            async (dynamic args) => Static_Connector_Callbacks.SetDirectorCallback(
-                DirectorCallbackType.OnStandby,
-                (Func<object, Task<object>>)args
-            ));
+            async (dynamic args) => Static_Connector_Callbacks.onStandby_JS = (Func<object, Task<object>>)args);
+
         public Func<object, Task<object>> onDashboardChange = (Func<object, Task<object>>)(
-            async (dynamic args) => Static_Connector_Callbacks.SetDirectorCallback(
-                DirectorCallbackType.OnDashboardChange,
-                (Func<object, Task<object>>)args
-            ));
+            async (dynamic args) => Static_Connector_Callbacks.onDashboardChange_JS = (Func<object, Task<object>>)args);
+
         public Func<object, Task<object>> onChaperoneSettingsChange = (Func<object, Task<object>>)(
-            async (dynamic args) => Static_Connector_Callbacks.SetDirectorCallback(
-                DirectorCallbackType.OnChaperoneSettingsChange,
-                (Func<object, Task<object>>)args
-            ));
+            async (dynamic args) => Static_Connector_Callbacks.onChaperoneSettingsChange_JS = (Func<object, Task<object>>)args);
+
         public Func<object, Task<object>> onOpenVRSignaledQuit = (Func<object, Task<object>>)(
-            async (dynamic args) => Static_Connector_Callbacks.SetDirectorCallback(
-                DirectorCallbackType.OnOpenVRSignaledQuit,
-                (Func<object, Task<object>>)args
-            ));
+            async (dynamic args) => Static_Connector_Callbacks.onOpenVRSignaledQuit_JS = (Func<object, Task<object>>)args);
     }
 
-    public class OVRLay_JS
+    public class OVRLayMethods
     {
-        private OVRLay.OVRLay _overlay;
-        public OVRLay_JS(OVRLay.OVRLay ovrlayToWrap)
-        {
-            this._overlay = ovrlayToWrap;
-        }
-
-
-    }
-
-    public class OpenGLTexture_JS
-    {
-        
-        private OpenGLTexture _tex;
-        public OpenGLTexture_JS(OpenGLTexture texToWrap)
-        {
-
-        }
+        public Func<object, Task<object>> CreateOVRLay = (Func<object, Task<object>>)(async (dynamic args) => null);
     }
 }

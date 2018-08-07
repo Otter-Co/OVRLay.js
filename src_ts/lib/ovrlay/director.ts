@@ -4,21 +4,29 @@ import { I_Director } from './ovrlayjs_interopt';
 
 export class C_Director extends events.EventEmitter
 {
+    static isStarted = I_Director.methods.isStarted;
+    static getLastError = I_Director.methods.getLastError;
+    static startup = I_Director.methods.startup;
+    static shutdown = I_Director.methods.shutdown;
+    static pollForEvents = I_Director.methods.pollForEvents;
+
     constructor ()
     {
         super();
 
-        I_Director.callbacks.onStandbyChange( ( data, callback ) => callback( null, this.emit( 'standby-change', data ) && null ), true );
-        I_Director.callbacks.onDashboardChange( ( data, callback ) => callback( null, this.emit( 'dashbaord-change', data ) && null ), true );
-        I_Director.callbacks.onChaperoneSettingsChange( ( data, callback ) => callback( null, this.emit( 'chaperone-settings-change' ) && null ), true );
-        I_Director.callbacks.onOpenVRSignaledQuit( ( data, callback ) => callback( null, this.emit( 'openvr-signaled-quit' ) && null ), true );
+        let { onStandbyChange, onDashboardChange, onChaperoneSettingsChange, onOpenVRSignaledQuit } = I_Director.callbacks;
+
+        onStandbyChange( ( data, callback ) => callback( null, this.emit( 'standby-change', data ) && null ), true );
+        onDashboardChange( ( data, callback ) => callback( null, this.emit( 'dashbaord-change', data ) && null ), true );
+        onChaperoneSettingsChange( ( data, callback ) => callback( null, this.emit( 'chaperone-settings-change' ) && null ), true );
+        onOpenVRSignaledQuit( ( data, callback ) => callback( null, this.emit( 'openvr-signaled-quit' ) && null ), true );
     }
 
-    public isStarted (): boolean { return I_Director.methods.isStarted( null, true ); }
-    public getLastError (): string { return I_Director.methods.getLastError( null, true ); }
-    public startup ( appType: vr.VRApplicationType ): boolean { return I_Director.methods.startup( appType, true ); }
-    public shutdown () { I_Director.methods.shutdown( null, true ); }
-    public pollForEvents () { I_Director.methods.pollForEvents( null, true ); }
+    public isStarted (): boolean { return C_Director.isStarted( null, true ); }
+    public getLastError (): string { return C_Director.getLastError( null, true ); }
+    public startup ( appType: vr.VRApplicationType ): boolean { return C_Director.startup( appType, true ); }
+    public shutdown () { C_Director.shutdown( null, true ); }
+    public pollForEvents () { C_Director.pollForEvents( null, true ); }
 }
 
 export interface C_Director extends events.EventEmitter

@@ -29,37 +29,30 @@ namespace OVRLay
 
         public string Name { get; private set; } = "Overlay";
         public string Key { get; private set; } = "ovrlay-overlay";
+
         public bool Created { get; private set; } = false;
 
         private ulong overlay_handle;
         private ulong thumbnail_handle;
 
         private VREvent_t pEvent = new VREvent_t();
+        private Texture_t textureStruct = new Texture_t()
+        {
+            handle = IntPtr.Zero,
+            eType = ETextureType.OpenGL,
+            eColorSpace = EColorSpace.Auto,
+        };
+        private Texture_t dashboardIconStruct = new Texture_t()
+        {
+            handle = IntPtr.Zero,
+            eType = ETextureType.OpenGL,
+            eColorSpace = EColorSpace.Auto,
+        };
 
         public OVRLay(OVRLayType overlayType, string overlayKey, string overlayName, OVRLayOptions? initalOptions)
         {
             OverlayType = overlayType;
             Options = initalOptions;
-        }
-
-        public void Hide()
-        {
-            Director.Overlay.HideOverlay(overlay_handle);
-        }
-        public void Show()
-        {
-            Director.Overlay.ShowOverlay(overlay_handle);
-        }
-
-        public bool ShowKeyboard(string description = "", string placeHolder = "")
-        {
-            lastError = Director.Overlay.ShowKeyboard(0, 0, description, 256, placeHolder, false, 0);
-            return (lastError == EVROverlayError.None);
-        }
-
-        public void HideKeyboard()
-        {
-            Director.Overlay.HideKeyboard();
         }
 
         public bool CreateOverlay()
@@ -73,8 +66,21 @@ namespace OVRLay
 
             bool result = (lastError == EVROverlayError.None);
 
+            if (result) Created = true;
+
             if (result && Options != null)
                 SetOverlayOptions((OVRLayOptions)Options);
+
+            return result;
+        }
+        public bool DestroyOverlay()
+        {
+            if (!Created) return true;
+
+            lastError = Director.Overlay.DestroyOverlay(overlay_handle);
+            bool result = (lastError == EVROverlayError.None);
+
+            if (result) Created = false;
 
             return result;
         }
@@ -83,8 +89,7 @@ namespace OVRLay
         {
             this.Options = opts;
 
-            if (!Created)
-                return false;
+            if (!Created) return false;
 
             if (opts.Color != null)
                 lastError = Director.Overlay.SetOverlayColor(overlay_handle, opts.Color[0], opts.Color[1], opts.Color[2]);
@@ -112,24 +117,68 @@ namespace OVRLay
             return lastError == EVROverlayError.None;
         }
 
-        public DashboardChange onDashboardChange = delegate (bool open) { };
-        public delegate void DashboardChange(bool currentActive);
-        public FocusChange onFocusChange = delegate (bool hasFocus) { };
-        public delegate void FocusChange(bool hasFocus);
-        public VisibilityChanged onVisibilityChange = delegate (bool visibility) { };
-        public delegate void VisibilityChanged(bool isVisible);
-        public KeyboardInput onKeyboardInput = delegate (string input) { };
-        public delegate void KeyboardInput(string input);
-        public KeyboardClosed onKeyboardClosed = delegate () { };
-        public delegate void KeyboardClosed();
-        public KeyboardDone onKeyboardDone = delegate () { };
-        public delegate void KeyboardDone();
-
-        public void PollForEvents()
+        public bool PollForEvents()
         {
+            if (!Created) return false;
+
             while (Director.Overlay.PollNextOverlayEvent(overlay_handle, ref pEvent, (uint)Director.VREventSize))
                 HandleEvent(pEvent);
+
+            return true;
         }
+
+        public ETextureType SetTextureType(ETextureType textureType) { return textureStruct.eType = textureType; }
+        public bool SetTexture(IntPtr TextureHandle)
+        {
+            if (!Created) return false;
+            textureStruct.handle = TextureHandle;
+            lastError = Director.Overlay.SetOverlayTexture(overlay_handle, ref textureStruct);
+            return (lastError == EVROverlayError.None);
+        }
+        public ETextureType SetDashboardIconType(ETextureType textureType) { return dashboardIconStruct.eType = textureType; }
+        public bool SetDashboardIconTexture(IntPtr textureHandle)
+        {
+            if (!Created) return false;
+            dashboardIconStruct.handle = textureHandle;
+            lastError = Director.Overlay.SetOverlayTexture(thumbnail_handle, ref dashboardIconStruct);
+            return (lastError == EVROverlayError.None);
+        }
+
+        public bool Hide()
+        {
+            if (!Created) return false;
+            lastError = Director.Overlay.HideOverlay(overlay_handle);
+            return (lastError == EVROverlayError.None);
+        }
+        public bool Show()
+        {
+            if (!Created) return false;
+            lastError = Director.Overlay.ShowOverlay(overlay_handle);
+            return (lastError == EVROverlayError.None);
+        }
+
+        public bool ShowKeyboard(string description = "", string placeHolder = "")
+        {
+            if (!Created) return false;
+            lastError = Director.Overlay.ShowKeyboard(0, 0, description, 256, placeHolder, false, 0);
+            return (lastError == EVROverlayError.None);
+        }
+
+        public bool HideKeyboard() { Director.Overlay.HideKeyboard(); return true; }
+
+        public delegate void DashboardChange(bool currentActive);
+        public delegate void FocusChange(bool hasFocus);
+        public delegate void VisibilityChanged(bool isVisible);
+        public delegate void KeyboardInput(string input);
+        public delegate void KeyboardClosed();
+        public delegate void KeyboardDone();
+
+        public DashboardChange onDashboardChange = delegate (bool open) { };
+        public FocusChange onFocusChange = delegate (bool hasFocus) { };
+        public VisibilityChanged onVisibilityChange = delegate (bool visibility) { };
+        public KeyboardInput onKeyboardInput = delegate (string input) { };
+        public KeyboardClosed onKeyboardClosed = delegate () { };
+        public KeyboardDone onKeyboardDone = delegate () { };
 
         private void HandleEvent(VREvent_t pEvent)
         {
