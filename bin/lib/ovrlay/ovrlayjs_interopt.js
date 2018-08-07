@@ -7,8 +7,8 @@ const dll_paths = lib_map_1.default(config_1.default.dll_dir);
 const locA = new edge_utils_1.Assembly(dll_paths.local);
 const lib_path = `${"OVRLayJS" /* CONNECTOR_NAMESPACE */}.${"Connector" /* CONNECTOR_TYPENAME */}`;
 const ConnectorAssembly = locA.mapClass(lib_path);
-const GetDirectorMethods = ConnectorAssembly.mapMethod("GetDirectorMethods" /* DIRECTOR_GET_METHOD */);
-const GetDirectorCallbackMethods = ConnectorAssembly.mapMethod("GetDirectorCallbackMethods" /* DIRECTOR_GET_CB_METHOD */);
+const GetDirectorMethods = ConnectorAssembly.mapMethod("GetDirectorMethods" /* DIRECTOR_GET_METHODS */);
+const GetDirectorCallbackMethods = ConnectorAssembly.mapMethod("GetDirectorCallbackMethods" /* DIRECTOR_GET_CB_METHODS */);
 exports.I_Director = Object.freeze({
     methods: GetDirectorMethods(),
     callbacks: GetDirectorCallbackMethods(),

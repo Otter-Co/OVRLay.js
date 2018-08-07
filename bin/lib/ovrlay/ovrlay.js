@@ -7,6 +7,18 @@ class C_OVRLay extends events.EventEmitter {
     getLastError() { return ''; }
     isCreated() { return false; }
     constructor(overlayType, overlayKey, overlayName, initalOptions) { super(); }
+    createOverlay() { return false; }
+    ;
+    destroyOverlay() { return false; }
+    ;
+    setOverlayOptions(opts) { return false; }
+    ;
+    pollForEvents() { }
+    ;
+    setTextureType() { return false; }
+    setTexture() { return false; }
+    setDashboardIconType() { return false; }
+    setDashboardIcon() { return false; }
     hide() { }
     ;
     show() { }
@@ -14,12 +26,6 @@ class C_OVRLay extends events.EventEmitter {
     showKeyboard(description, placeholder) { return false; }
     ;
     hideKeyboard() { return false; }
-    ;
-    createOverlay() { return false; }
-    ;
-    setOverlayOptions(opts) { return false; }
-    ;
-    pollForEvents() { }
     ;
 }
 exports.C_OVRLay = C_OVRLay;
