@@ -10,6 +10,7 @@ namespace OVRLayJS.OGLHandler
         public static DeviceContext devCtx;
         public static INativePBuffer pixelBuff;
         public static IntPtr glCtx;
+        public static ErrorCode lastError;
 
         public static void Init()
         {
@@ -37,12 +38,8 @@ namespace OVRLayJS.OGLHandler
 
         public static bool ErrorCheck()
         {
-            return (Gl.GetError() != ErrorCode.NoError);
-        }
-
-        public static string GetError()
-        {
-            return "";
+            lastError = Gl.GetError();
+            return (lastError!= ErrorCode.NoError);
         }
     }
 

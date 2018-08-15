@@ -1,11 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <PublishDir>../bin/lib_cs</PublishDir>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <PublishDir>../bin/lib_cs</PublishDir>
   </PropertyGroup>
 
 </Project>

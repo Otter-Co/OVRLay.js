@@ -137,7 +137,7 @@
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "Znkb6a7yPOKgstEQWgGwSF7hkyD5vcrd8LHpK3AnC+1K4McGIcy42r91lYx4cwcPfpcV+P+XCarwCJA1gAVn0w==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -337,31 +337,29 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
+      "projectUniqueName": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
       "projectName": "OVRLayJS",
-      "projectPath": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
+      "projectPath": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\OVRLayJS.csproj",
       "packagesPath": "C:\\Users\\benot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_cs\\obj\\",
+      "outputPath": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_cs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\benot\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\benot\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_ovrlay\\OVRLay.csproj": {
-              "projectPath": "C:\\Users\\benot\\Documents\\Code\\OVRLay.js\\src_ovrlay\\OVRLay.csproj"
+            "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_ovrlay\\OVRLay.csproj": {
+              "projectPath": "C:\\Users\\benot\\Documents\\code\\otter-co\\OVRLay.js\\src_ovrlay\\OVRLay.csproj"
             }
           }
         }
