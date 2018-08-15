@@ -53,6 +53,11 @@
         }
       },
       "OVRLay/1.0.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "OpenGL.Net": "0.7.1",
+          "OpenGL.Net.WinForms": "0.7.1"
+        },
         "runtime": {
           "OVRLay.dll": {}
         }

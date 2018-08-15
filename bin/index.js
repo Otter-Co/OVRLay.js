@@ -9,9 +9,9 @@ function interoptTest() {
     console.log("Test Start!");
     while (its--) {
         start = perf_hooks_1.performance.now();
-        ovrlayjs.Director.isStarted();
+        let res = ovrlayjs.Director.isStarted();
         end = perf_hooks_1.performance.now();
-        console.log(end - start);
+        console.log(`Call Perf: ${end - start} Res: ${res}`);
     }
     console.log("Test End!");
 }

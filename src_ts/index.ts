@@ -9,16 +9,16 @@ function interoptTest ()
 
     let start = 0, end = 0;
 
-    console.log( "Test Start!" );
+    console.log("Test Start!");
 
-    while ( its-- )
+    while (its--)
     {
         start = performance.now();
-        ovrlayjs.Director.isStarted();
+        let res = ovrlayjs.Director.isStarted();
         end = performance.now();
 
-        console.log( end - start );
+        console.log(`Call Perf: ${ end - start } Res: ${ res }`);
     }
 
-    console.log( "Test End!" );
+    console.log("Test End!");
 }

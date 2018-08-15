@@ -10,6 +10,9 @@
             "path": "src_ovrlay"
         },
         {
+            "path": "src_edge_js_utils"
+        },
+        {
             "path": "src_cs"
         },
         {
